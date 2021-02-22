@@ -28,7 +28,9 @@ export default function NewMemory() {
         photoURL,
       },
       upvotes: 0,
-      emotion: emotion,
+      emotion:
+        emotion ||
+        "https://cdn.discordapp.com/attachments/792429986094907392/810879690901684244/winking-face-with-halo.png",
       tagged: [],
       createdAt: timestamp(),
       date: timestamp(memorydate),
@@ -121,7 +123,7 @@ export default function NewMemory() {
                     onClick={() => setEmotion(null)}
                   />
                   <Button
-                    onClick={addMemory}
+                    onClick={values.title && values.body && addMemory}
                     type="submit"
                     label="Add ✍"
                     primary
