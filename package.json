@@ -7,10 +7,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "firebase": "^8.2.9",
     "grommet": "^2.5.5",
+    "moment": "^2.29.1",
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-fade-in": "^2.0.1",
+    "react-firebase-hooks": "^2.2.0",
     "styled-components": "^4.0.0"
   },
   "devDependencies": {

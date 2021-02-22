@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  background-color: #f7ccf3c2;
+}
+.navBar-wrap0 {
+  width: 100vw;
+
+  background-image: linear-gradient(65deg, #000000 0%, #414141 74%);
+  padding: 0.3em 1.5rem;
+}
+.title {
+  color: white;
+  font-size: large;
+}
+.nav-wrap1 {
+  display: flex;
+  z-index: 100;
+  justify-content: space-between;
+  align-items: center;
+}
+.navitem {
+  color: white;
+}
+.card-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  width: 95vw;
+  margin: 0em auto;
+
+  padding: 0.5rem;
+  justify-content: space-evenly;
+  align-content: flex-start;
+}
+.card-wrap {
+  margin: 0.4em 0.4em;
+}
+.signIn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+}
+.nav-wrap2 {
+  width: 20vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+}
+.newMemoryTrigger {
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;
+}
