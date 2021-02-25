@@ -13,15 +13,20 @@ import styled from "styled-components";
 // import bg from "../assets/winking-face-with-halo.png";
 import moment from "moment";
 // import TaggedGroup from "./taggedgroup";
-import { firestore } from "../firebase/config";
+import { auth, firestore } from "../firebase/config";
 
 export default function MemoryCard({ post }) {
   const { title, body, emotion, upvotes, user, date } = post;
   const event_date = date && moment(date.toDate()).format("MMMM Do YY");
+  const { uid } = auth.currentUser;
 
   async function handleUpvote(e) {
     const memoryRef = firestore.collection("memories").doc(post.id);
-    const res = await memoryRef.update({ upvotes: upvotes + 1 });
+    if (post.upvotes.includes(uid))
+      post.upvotes = post.upvotes.filter((userid) => userid !== uid);
+    else post.upvotes.push(uid);
+
+    const res = await memoryRef.update({ upvotes: post.upvotes });
   }
 
   return (
@@ -60,7 +65,7 @@ export default function MemoryCard({ post }) {
                 icon={<CaretUpFill color="red" onClick={handleUpvote} />}
                 hoverIndicator
               />
-              <div className="upvotes">{upvotes}</div>
+              <div className="upvotes">{upvotes.length}</div>
             </StyledUpvotes>
             <StyledDate className="date">{event_date}</StyledDate>
             <Avatar size="small" src={user.photoURL} />

@@ -34,7 +34,7 @@ export default function NavBar() {
               </Grommet>
             </div>
           )}
-          <div className="navitem">
+          {/* <div className="navitem">
             <Link
               href="/about"
               style={{ textDecoration: "none", color: "whitesmoke" }}
@@ -42,7 +42,7 @@ export default function NavBar() {
             >
               About
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
