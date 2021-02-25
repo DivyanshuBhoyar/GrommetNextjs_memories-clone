@@ -59,3 +59,7 @@
   bottom: 2vh;
   left: 50%;
 }
+.Link {
+ text-decoration: "none"; 
+  color: "whitesmoke" 
+}
