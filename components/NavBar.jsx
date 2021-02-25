@@ -38,6 +38,7 @@ export default function NavBar() {
             <Link
               href="/about"
               style={{ textDecoration: "none", color: "whitesmoke" }}
+              className = "Link"
             >
               About
             </Link>
