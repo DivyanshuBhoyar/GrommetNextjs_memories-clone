@@ -37,7 +37,15 @@ export const emojiData = [
   },
   {
     url:
-      "https://cdn.discordapp.com/attachments/792429986094907392/810879423091703808/clenched-teeth-scared-face.png",
+      "https://cdn.discordapp.com/attachments/792429986094907392/815462727652474940/1f636.png",
+  },
+  {
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/815462724749754418/1f623.png",
+  },
+  {
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/815462722124120124/daydreaming-face.png",
   },
   {
     url:
@@ -54,10 +62,6 @@ export const emojiData = [
   {
     url:
       "https://cdn.discordapp.com/attachments/792429986094907392/810879365045944371/cat-face-with-sunglasses.png",
-  },
-  {
-    url:
-      "https://cdn.discordapp.com/attachments/792429986094907392/810879343442001971/1f3e0.png",
   },
   {
     url:
@@ -84,33 +88,47 @@ export const emojiData = [
       "https://cdn.discordapp.com/attachments/792429986094907392/810879363959750656/1f973.png",
   },
   {
-    url: "https://cdn.discordapp.com/attachments/792429986094907392/814376594591842344/partying_face.gif",
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376594591842344/partying_face.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376607225085962/ferris_wheel.gif",
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376607225085962/ferris_wheel.gif",
   },
   {
-  url: "https://cdn.discordapp.com/attachments/792429986094907392/814376594591842344/partying_face.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/815462787509256202/crying_face.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376567924457492/hot_face.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376570240106536/fireworks_1.gif",
   },
   {
-  url: "https://cdn.discordapp.com/attachments/792429986094907392/814376567869276160/rolling_on_the_floor_laughing.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376567924457492/hot_face.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376549545148426/cowboy_hat_face.gif" ,
-  },
-    {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376532872527902/smiling_face_with_sunglasses.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376567869276160/rolling_on_the_floor_laughing.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376520805253150/fire.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376549545148426/cowboy_hat_face.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814376517689278474/bomb.gif"
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376532872527902/smiling_face_with_sunglasses.gif",
   },
   {
-  url : "https://cdn.discordapp.com/attachments/792429986094907392/814373584259514399/rock-on-face.png"
-  }
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376520805253150/fire.gif",
+  },
+  {
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814376517689278474/bomb.gif",
+  },
+  {
+    url:
+      "https://cdn.discordapp.com/attachments/792429986094907392/814373584259514399/rock-on-face.png",
+  },
 ];

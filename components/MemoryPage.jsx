@@ -31,7 +31,7 @@ export default function MemoryPage() {
       <FadeIn className="card-grid">
         {memoriesData &&
           memoriesData.map((post) => (
-            <div className="card-wrap">
+            <div key={post.id} className="card-wrap">
               <MemoryCard key={post.id} post={post} />
             </div>
           ))}

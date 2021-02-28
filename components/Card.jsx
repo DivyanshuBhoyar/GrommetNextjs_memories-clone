@@ -8,25 +8,26 @@ import {
   Grommet,
   Avatar,
 } from "grommet";
-import { CaretUpFill } from "grommet-icons";
+import { CaretUpFill, FormClose } from "grommet-icons";
 import styled from "styled-components";
-// import bg from "../assets/winking-face-with-halo.png";
 import moment from "moment";
-// import TaggedGroup from "./taggedgroup";
 import { auth, firestore } from "../firebase/config";
 
 export default function MemoryCard({ post }) {
   const { title, body, emotion, upvotes, user, date } = post;
   const event_date = date && moment(date.toDate()).format("MMMM Do YY");
   const { uid } = auth.currentUser;
+  const memoryRef = firestore.collection("memories").doc(post.id);
 
   async function handleUpvote(e) {
-    const memoryRef = firestore.collection("memories").doc(post.id);
     if (post.upvotes.includes(uid))
       post.upvotes = post.upvotes.filter((userid) => userid !== uid);
     else post.upvotes.push(uid);
-
     const res = await memoryRef.update({ upvotes: post.upvotes });
+  }
+
+  async function handleDelete(e) {
+    const res = memoryRef.delete();
   }
 
   return (
@@ -43,10 +44,11 @@ export default function MemoryCard({ post }) {
           <WhiteOverlay />
           <StyledCardHeader pad="medium">
             <div className="">{title}</div>
-            {/* <div className="">
-              {" "}
-              <TaggedGroup />{" "}
-            </div> */}
+            {user.uid === uid && (
+              <div className="">
+                <FormClose cursor="pointer" onClick={handleDelete} />
+              </div>
+            )}
           </StyledCardHeader>
           <StyledCardBody
             pad={{
@@ -103,11 +105,10 @@ const StyledUpvotes = styled.div`
 `;
 const StyledCard = styled(Card)`
   /* background-image: url(${bg}); */
-  background-image: url(${(props) =>
-    props.emotion ? props.emotion : props.emotion});
+  background-image: url(${(props) => props.emotion});
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 10px 10px 20px #b5b5b5, -10px -10px 20px #ffffff;
+  box-shadow: 10px 10px 20px #ce80c7, -10px -10px 20px #ffffff;
 `;
 const WhiteOverlay = styled.div`
   position: absolute;

@@ -27,7 +27,7 @@ export default function NewMemory() {
         uid,
         photoURL,
       },
-      upvotes: 0,
+      upvotes: [],
       emotion:
         emotion ||
         "https://cdn.discordapp.com/attachments/792429986094907392/810879690901684244/winking-face-with-halo.png",
