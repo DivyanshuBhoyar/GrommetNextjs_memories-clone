@@ -8,7 +8,6 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 export default function MemoryPage() {
   const memoriesRef = firestore.collection("memories");
   const query = memoriesRef.orderBy("createdAt", "desc");
-
   const [memoriesData, loading, error] = useCollectionData(query, {
     idField: "id",
   });

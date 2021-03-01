@@ -1,14 +1,24 @@
 import { Button, FormField, TextArea, Form, Layer, Box } from "grommet";
 import { Add } from "grommet-icons";
+import Head from "next/head";
 
 import React, { useState } from "react";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, firestore, timestamp } from "../firebase/config";
 import { FormatDate } from "./DateInput";
 import EmojiPicker from "./EmojiPicker";
 
+const usersRef = firestore.collection("users");
+const query = usersRef.orderBy("createdAt", "desc");
+
 export default function NewMemory() {
+  const { uid, photoURL, email, displayName } = auth.currentUser;
   const memoriesRef = firestore.collection("memories");
+  const [usersData, loading, error] = useCollectionData(query, {
+    idField: "uid",
+  });
+
   const initialFormState = {
     title: "",
     body: "",
@@ -19,7 +29,6 @@ export default function NewMemory() {
   const [emotion, setEmotion] = useState(null);
 
   async function addMemory() {
-    const { uid, photoURL } = auth.currentUser;
     await memoriesRef.add({
       title: values.title,
       body: values.body,
@@ -35,6 +44,7 @@ export default function NewMemory() {
       createdAt: timestamp(),
       date: timestamp(memorydate),
     });
+    sendEmail();
     handleClose();
   }
 
@@ -51,8 +61,26 @@ export default function NewMemory() {
     setoverlayIsActive(false);
   }
 
+  function sendEmail(l) {
+    const filterusers = usersData.filter((user) => user.uid !== uid);
+    filterusers.map((user) => {
+      Email.send({
+        Host: "smtp.google.com",
+        Username: "hatwarkalash@gmail.com",
+        Password: "hatwar@123",
+        To: user.email,
+        From: "hatwarkalash@gmail.com",
+        Subject: "Hatwaar beta from the MemoriesApp.",
+        Body: `Dear user, \n\n ${displayName} Just added a new memory 📝 . `,
+      }).then((message) => console.log(message));
+    });
+  }
+
   return (
     <>
+      <Head>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+      </Head>
       <div
         style={{
           height: "4vw",
@@ -123,7 +151,7 @@ export default function NewMemory() {
                     onClick={() => setEmotion(null)}
                   />
                   <Button
-                    onClick={values.title && values.body && addMemory}
+                    onClick={values.title && values.body ? addMemory : null}
                     type="submit"
                     label="Add ✍"
                     primary
