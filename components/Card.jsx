@@ -124,7 +124,7 @@ const StyledCardFooter = styled(CardFooter)`
   z-index: 10;
 
   padding: 0 0.75em 0 0;
-  background-color: rgba(49, 255, 80, 0.589);
+  background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%);
 `;
 const StyledDate = styled.div`
   margin-right: 0.8em;
